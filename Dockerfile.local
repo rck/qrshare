@@ -1,0 +1,5 @@
+FROM scratch
+MAINTAINER Roland Kammerer <dev.rck@gmail.com>
+
+ADD qrshare /usr/local/bin/qrshare
+ENTRYPOINT ["qrshare"]
