@@ -2,3 +2,16 @@ language: go
 install: make get-deps
 go:
 - tip
+before_deploy: "make release"
+deploy:
+  provider: releases
+  api_key:
+    secure: ljuZ0A4gzUbP2xhHQuij+5nEjD9rvgihIr5bQCDwWab4foMY448b3FZtIpbfvYWSMEvEFTqKADwD0zqMn5KSQaZhWf1T78Q0vWIso/U8xLjdrp0Pk8RYRWmJ3URgbhl2HQXkgzje6YxRuTKn4pc7iP+vagXyxP+uwGaLKckGnnBFGR6VbIrf4vFKUsoJhxC+69JkIx62FBn7eq+xqWk7mfGcKQq79QY1rd//PjjHRgABnSB7Vc9rjRx2Wzh8Pa9feTDfEc9m0FMRQVjwOmcQyPt+4Vej2umlc4zTQJVVQBOW942BQvOYZ49E8FP0IenkFJEUMaQESv68XERQOGR5oBNBR8D3x0aLLcNPgV02GuDpZ7uRRQ9xrAjrXRo1laJoafJBfDnY1vHU53xsT8wRUk/BocFj7GssT4nhChlLZsHMDfs479NFZd+n+zlFzjFkqJPm6srGEyOxfVpJVfhfytUjBzBpsU19bcaJ1QK9eD8OJPxTqLyniwc5QUw9SJA85sZ54OLAdMsQ+RhBFE6f5T0PhHhzqpRq7ajY9w+uTeZ8brh1aTFoMaPxZlv661CDwWtVmIyiYSlRWMn1Kd/nnroC5ZTXpUDHlR4UYe3P06fdXY/XRGMFgNkB1ncbCm3i4BNfXM6xWVWPxgqM+onGJRQvQN449/8i+kusfZ7cddA=
+  file:
+     - "qrshare-linux-amd64"
+     - "qrshare-darwin-amd64"
+     - "qrshare-openbsd-amd64"
+     - "qrshare-windows-amd64"
+  skip_cleanup: true
+  on:
+     tags: true
